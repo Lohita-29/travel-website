@@ -1,33 +1,48 @@
-function searchDestination() {
-
-  const value = document
-    .getElementById("searchInput")
-    .value
-    .toLowerCase();
-
-  const cards = document.querySelectorAll(".card");
-
-  let found = false;
-
-  cards.forEach(card => {
-
-    const name = card.querySelector("h3").innerText.toLowerCase();
-
-    card.style.border = "none";
-
-    if(name.includes(value)) {
-      found = true;
-      card.style.border = "3px solid green";
-      card.scrollIntoView({behavior:"smooth"});
+const destinations = [
+    {
+        name: "Singapore",
+        description: "Gardens by the Bay, Sentosa, Universal Studios, Marina Bay Sands, Jewel Changi Airport."
+    },
+    {
+        name: "Malaysia",
+        description: "Kuala Lumpur, Petronas Twin Towers, Batu Caves, Genting Highlands."
+    },
+    {
+        name: "Thailand",
+        description: "Bangkok, Phuket, Krabi, Pattaya and beautiful beaches."
+    },
+    {
+        name: "Dubai",
+        description: "Burj Khalifa, Dubai Mall, Desert Safari and Palm Jumeirah."
+    },
+    {
+        name: "Bali",
+        description: "Ubud, Tanah Lot Temple, beaches and rice terraces."
+    },
+    {
+        name: "Paris",
+        description: "Eiffel Tower, Louvre Museum and Seine River."
     }
-  });
+];
 
-  if(!found){
-    alert("Destination not found");
-  }
-}
+function searchDestination() {
+    const searchText = document
+        .getElementById("searchInput")
+        .value
+        .toLowerCase();
 
-function submitForm(e){
-  e.preventDefault();
-  alert("Message sent successfully!");
+    const result = document.getElementById("result");
+
+    const destination = destinations.find(
+        d => d.name.toLowerCase() === searchText
+    );
+
+    if (destination) {
+        result.innerHTML = `
+            <h2>${destination.name}</h2>
+            <p>${destination.description}</p>
+        `;
+    } else {
+        result.innerHTML = "<h2>Destination not found</h2>";
+    }
 }
