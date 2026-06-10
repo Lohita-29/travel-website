@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>WanderVista Travel</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <h1>WanderVista</h1>
+  <ul>
+    <li><a href="#destinations">Destinations</a></li>
+    <li><a href="#planner">Planner</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<header class="hero">
+  <div>
+    <h1>Explore The World</h1>
+    <p>Find your next adventure</p>
+
+    <div class="search">
+      <input id="searchInput" type="text" placeholder="Search destination...">
+      <button onclick="searchDestination()">Discover</button>
+    </div>
+  </div>
+</header>
+
+<section id="destinations" class="section">
+  <h2>Popular Destinations</h2>
+
+  <div class="grid">
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=1200">
+      <h3>Paris</h3>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=1200">
+      <h3>Tokyo</h3>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1200">
+      <h3>Dubai</h3>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1505765050516-f72dcac9c60b?w=1200">
+      <h3>London</h3>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=1200">
+      <h3>Bali</h3>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1506973035872-a4ec16b8d0d9?w=1200">
+      <h3>New York</h3>
+    </div>
+
+  </div>
+</section>
+
+<section id="planner" class="section">
+  <h2>Trip Planner</h2>
+  <p>Create your dream travel itinerary easily.</p>
+</section>
+
+<section id="contact" class="section dark">
+  <h2>Contact Us</h2>
+
+  <form onsubmit="submitForm(event)">
+    <input type="text" placeholder="Name" required>
+    <input type="email" placeholder="Email" required>
+    <textarea placeholder="Message"></textarea>
+    <button type="submit">Send</button>
+  </form>
+</section>
+
+<footer>
+  © 2026 WanderVista
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
