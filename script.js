@@ -1,48 +1,57 @@
-const destinations = [
-    {
+const destinations = {
+    singapore: {
         name: "Singapore",
-        description: "Gardens by the Bay, Sentosa, Universal Studios, Marina Bay Sands, Jewel Changi Airport."
+        info: "Gardens by the Bay, Sentosa Island, Universal Studios, Marina Bay Sands and Jewel Changi Airport."
     },
-    {
+
+    malaysia: {
         name: "Malaysia",
-        description: "Kuala Lumpur, Petronas Twin Towers, Batu Caves, Genting Highlands."
+        info: "Kuala Lumpur, Petronas Twin Towers, Batu Caves, Genting Highlands and Langkawi."
     },
-    {
+
+    thailand: {
         name: "Thailand",
-        description: "Bangkok, Phuket, Krabi, Pattaya and beautiful beaches."
+        info: "Bangkok, Phuket, Krabi, Pattaya and beautiful beaches."
     },
-    {
+
+    dubai: {
         name: "Dubai",
-        description: "Burj Khalifa, Dubai Mall, Desert Safari and Palm Jumeirah."
+        info: "Burj Khalifa, Dubai Mall, Palm Jumeirah and Desert Safari."
     },
-    {
+
+    bali: {
         name: "Bali",
-        description: "Ubud, Tanah Lot Temple, beaches and rice terraces."
+        info: "Ubud, Tanah Lot Temple, rice terraces and beaches."
     },
-    {
+
+    paris: {
         name: "Paris",
-        description: "Eiffel Tower, Louvre Museum and Seine River."
+        info: "Eiffel Tower, Louvre Museum and Seine River."
     }
-];
+};
 
 function searchDestination() {
-    const searchText = document
+
+    let input = document
         .getElementById("searchInput")
         .value
+        .trim()
         .toLowerCase();
 
-    const result = document.getElementById("result");
+    let result = document.getElementById("result");
 
-    const destination = destinations.find(
-        d => d.name.toLowerCase() === searchText
-    );
+    if (destinations[input]) {
 
-    if (destination) {
         result.innerHTML = `
-            <h2>${destination.name}</h2>
-            <p>${destination.description}</p>
+            <h2>${destinations[input].name}</h2>
+            <p>${destinations[input].info}</p>
         `;
+
     } else {
-        result.innerHTML = "<h2>Destination not found</h2>";
+
+        result.innerHTML = `
+            <h2>Destination Not Found</h2>
+            <p>Please search for Singapore, Malaysia, Thailand, Dubai, Bali or Paris.</p>
+        `;
     }
 }
